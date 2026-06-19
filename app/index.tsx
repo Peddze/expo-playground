@@ -1,5 +1,5 @@
-import { Pressable, StyleSheet, Text, View, TextInput } from "react-native";
 import { useState } from "react";
+import { FlatList, Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
@@ -41,6 +41,11 @@ export default function Index() {
         <Text style={styles.buttonText}>Add</Text>
       </Pressable>
       <Text>Items: {items.length}</Text>
+      <FlatList 
+        data={items} 
+        renderItem={({ item }) => <Text>{item}</Text>} 
+        keyExtractor={(item, index) => index.toString()} 
+      />
     </View>
   )
 }
